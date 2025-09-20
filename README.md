@@ -1,4 +1,4 @@
-# Servidor_Flask_Dashboard_Clima_-con_Tailscale_VPN_personal
+# Servidor_Flask_Dashboard_Clima_con_Tailscale_VPN_personal
 Actividad Sistemas Programables, creación de una interfaz de clima mediante un servidor Flask
 
 **Autor**: Suárez Castro Jair Alberto - 22211663  
