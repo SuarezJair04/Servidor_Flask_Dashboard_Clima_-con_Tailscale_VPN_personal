@@ -5,30 +5,36 @@
 # ║        Descripción: Servidor Flask consultando OpenWeatherMap  ║
 # ╚═══════════════════════════════════════════════════════════════╝
 
-from flask import Flask
-import requests
-from datetime import datetime
+from flask import Flask  # Importamos Flask para levantar el servidor web
+import requests          # Requests nos ayuda a hacer peticiones HTTP
+from datetime import datetime  # Para mostrar la fecha actual
 
+# Inicializamos la aplicación de Flask
 app = Flask(__name__)
 
+# Aquí pongo mi API key de OpenWeatherMap y la ciudad que quiero consultar
 API_KEY = "5b47b6c7ed03bca400cfeb4808a334a0"
 CITY = "Tijuana"
 
+# Definimos la ruta principal del servidor
 @app.route("/")
 def clima():
+    # Construimos la URL para consultar el clima
     url = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric&lang=es"
-    data = requests.get(url).json()
+    data = requests.get(url).json()  # Hacemos la petición y guardamos la respuesta en JSON
 
-    temp = round(data["main"]["temp"])
-    weather = data["weather"][0]["description"].capitalize()
-    date = datetime.now().strftime("%A, %d %B %Y")
+    # Sacamos los datos que nos interesan
+    temp = round(data["main"]["temp"])  # Temperatura redondeada
+    weather = data["weather"][0]["description"].capitalize()  # Descripción del clima
+    date = datetime.now().strftime("%A, %d %B %Y")  # Fecha en formato legible
 
-    # Plantilla HTML con estilos parecidos al ejemplo
+    # Devolvemos una pequeña página HTML con estilos
     return f"""
     <html>
     <head>
         <meta charset="UTF-8">
         <style>
+            /* Estilos generales de la página */
             body {{
                 font-family: Arial, sans-serif;
                 background: #cfe8ff;
@@ -38,6 +44,7 @@ def clima():
                 height: 100vh;
                 margin: 0;
             }}
+            /* Tarjeta principal */
             .card {{
                 background: linear-gradient(90deg, #4facfe, #00f2fe);
                 border-radius: 20px;
@@ -67,6 +74,7 @@ def clima():
                 margin-top: 5px;
                 font-size: 16px;
             }}
+            /* Sol decorativo al lado derecho */
             .sun {{
                 width: 80px;
                 height: 80px;
@@ -90,5 +98,6 @@ def clima():
     </html>
     """
 
+# Esto hace que Flask se ejecute si corro este archivo directamente
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
