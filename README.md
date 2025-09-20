@@ -75,7 +75,7 @@ Abrir un navegador en otro dispositivo conectado a **Tailscale** e ingresar la d
 
 
 ### Clima Tijuana
-![Image](https://github.com/user-attachments/assets/5df72512-e561-4877-8a43-1efa20b7c025)
+![Image](https://github.com/user-attachments/assets/1cc60d98-db24-42ef-9014-ca334631bee7)
 
 ### Climas de distintas ciudades del mundo
 ![Image](https://github.com/user-attachments/assets/26cc68b8-be48-4191-a0f5-613e9b1e7a35)
